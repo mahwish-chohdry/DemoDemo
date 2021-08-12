@@ -15,7 +15,7 @@ provider "azurerm" {
 backend "azurerm"{
   resource_group_name  = "tfstate-rg"
   storage_account_name = "fmahwisht"
-  container name   = "tfstate"
+  container_name   = "tfstate"
   key  =  "dev.terraform.tfstate"
   }
 

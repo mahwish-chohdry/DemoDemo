@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+- master
  
 variables:
   tf_state_rg: "tfstate-rg" # name of the resource group to create/use for the terraform state file

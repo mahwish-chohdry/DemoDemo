@@ -7,6 +7,7 @@ trigger:
 - master
  
 variables:
+  tf_version: "0.12.26" # what version of terraform should be used
   tf_state_rg: "tfstate-rg" # name of the resource group to create/use for the terraform state file
   tz_state_location: "westus" # location of the resource group to create/use for the terraform state file
   tf_state_sa_name: "fmahwisht" # name of of the storage account to create/use for the terraform state file
@@ -17,7 +18,11 @@ pool:
   vmImage: ubuntu-latest
  
 steps:
- 
+
+  - task: terraformInstaller@0
+    displayName: "Install Terraform $(tf_version)"
+    inputs:
+      terraformVersion: "$(tf_version)"
   - task: AzureCLI@2
     displayName: "Create/Check the Terraform Statefile Azure Storage Account"
     inputs:

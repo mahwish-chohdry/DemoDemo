@@ -6,14 +6,8 @@ terraform {
     }
   }
 
-backend "azurerm" {
-        resource_group_name  = "tfstate-rg"
-        storage_account_name = "fmahwisht"
-        container_name       = "tstate"
-        key                  = "terraform.tfstate"
-    }
+backend "azurerm"{}
 }
-
 provider "azurerm" {
   # Configuration options
   features{}

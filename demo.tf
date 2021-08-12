@@ -10,8 +10,16 @@ terraform {
 provider "azurerm" {
   # Configuration options
   features{}
+  
+  backend "azurerm" {
+        resource_group_name  = "tfstate-rg"
+        storage_account_name = "fmahwisht"
+        container_name       = "tstate"
+        key                  = "terraform.tfstate"
+    }
+
 }
-terraform { backend "azure" {} }
+
 resource "azurerm_resource_group" "rg" {
   name     = "RG-TF-Testing"
   location = "eastus"

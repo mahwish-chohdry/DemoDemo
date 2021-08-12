@@ -11,7 +11,7 @@ provider "azurerm" {
   # Configuration options
   features{}
 }
-
+terraform { backend "azure" {} }
 resource "azurerm_resource_group" "rg" {
   name     = "RG-TF-Testing"
   location = "eastus"
